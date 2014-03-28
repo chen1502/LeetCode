@@ -31,7 +31,7 @@ public class Solution {
                     
                     // the following two lines are not necessary
                     while(j < k && num[k] == num[k-1]) k--;
-                    k--
+                    k--;
                 }
             }
             while(i < num.length - 2 && num[i] == num[i+1]) i++;
