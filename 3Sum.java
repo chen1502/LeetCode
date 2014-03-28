@@ -5,6 +5,8 @@
  * The solution set much not contain duplicate triplets
  */
  
+ 
+ // Complexity: O(nlogn) time to sort, O(n^2) to search, which I beleive is optimal
 public class Solution {
     public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
         ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
