@@ -8,6 +8,7 @@
 // The idea for this solution is,
 // if we have a triple sum s < target, then there is no need to examine other triplets with sum < s
 // if we have a triple sum s > target, then there is no need to examine other triplets with sum > s
+// Complexity: O(nlogn) time to sort, O(n) to search
 public class Solution {
     public int threeSumClosest(int[] num, int target) {
         Arrays.sort(num);
