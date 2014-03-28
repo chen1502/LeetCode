@@ -8,6 +8,7 @@
  * Output: {1, 2}
  */
 
+// Complexity: O(n) space for hashmap, armotized O(n) time to build hasmap and search
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         
