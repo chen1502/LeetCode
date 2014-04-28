@@ -1,3 +1,9 @@
+/**Given two words (start and end) and a dictionary, find all shortest transformation sequences from start to end,
+ * such that:
+ * 1. only one letter is changed at a time
+ * 2. each intermediate word must exist in the dictionary
+ */
+
 public class Solution {
     public class Node {
         public String word;
