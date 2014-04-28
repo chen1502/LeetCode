@@ -5,7 +5,7 @@
  */
 
 public class Solution {
-    // node class for a DAT
+    // node class for a DAG
     public class Node {
         public String word;
         public int level;
@@ -35,7 +35,7 @@ public class Solution {
         hm = new HashMap<String, Node>();
         this.dict = dict;
         
-        // use BFS to build a DAT 
+        // use BFS to build a DAG
         Queue<Node> queue = new LinkedList<Node>();
         queue.add(nEnd);
         buildGraph(queue);
