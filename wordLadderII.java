@@ -5,6 +5,7 @@
  */
 
 public class Solution {
+    // node class for a DAT
     public class Node {
         public String word;
         public int level;
@@ -23,7 +24,8 @@ public class Solution {
     int level, N;
     Set<String> dict;
     
-    public ArrayList<ArrayList<String>> findLadders(String start, String end, HashSet<String> dict) {    
+    public ArrayList<ArrayList<String>> findLadders(String start, String end, HashSet<String> dict) {
+        // initialize class variables
         ladders = new ArrayList<ArrayList<String>>();
         found = false;
         level = 0;
@@ -33,10 +35,12 @@ public class Solution {
         hm = new HashMap<String, Node>();
         this.dict = dict;
         
+        // use BFS to build a DAT 
         Queue<Node> queue = new LinkedList<Node>();
         queue.add(nEnd);
         buildGraph(queue);
         
+        // use DFS to get ladders
         ArrayList<String> ladder = new ArrayList<String>();
         getLadders(nStart, ladder);
         
@@ -45,11 +49,17 @@ public class Solution {
     
     void buildGraph(Queue<Node> queue) {
         level++;
+        
+        // stop when either queue is empty or target if found
         if (queue.isEmpty() || found) return;
+        
         Queue<Node> mQueue = new LinkedList<Node>();
+        
         while (!queue.isEmpty()) {
             Node currNode = queue.poll();
             char[] arr = currNode.word.toCharArray();
+            
+            // for each entry of arr, we try all possible changes
             for (int i = 0; i < N; i++) {
                 char currChar = arr[i];
                 for (char c = 'a'; c <= 'z'; c++) {
@@ -57,6 +67,7 @@ public class Solution {
                         arr[i] = c;
                         String currStr = String.valueOf(arr);
                         if (dict.contains(currStr)) {
+                            // for new word, create a new node
                             if (!hm.containsKey(currStr) ) {
                                 Node aNode = new Node(currStr, level);
                                 aNode.next.add(currNode);
@@ -67,6 +78,7 @@ public class Solution {
                                     found = true;
                                 }
                             }
+                            // for visited word, we'll use it only if it is in the same level
                             else {
                                 Node temp = hm.get(currStr);
                                 if (temp.level == level) {
