@@ -50,7 +50,7 @@ public class Solution {
     void buildGraph(Queue<Node> queue) {
         level++;
         
-        // stop when either queue is empty or target if found
+        // stop when either queue is empty or target is found
         if (queue.isEmpty() || found) return;
         
         Queue<Node> mQueue = new LinkedList<Node>();
